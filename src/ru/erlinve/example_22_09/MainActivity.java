@@ -26,6 +26,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        Log.e(TAG, "onCreate");
+
         this.startServiceWorking();
     }
 
@@ -37,6 +39,8 @@ public class MainActivity extends Activity {
 
         this.unbindService(serviceConnection);
         stopService(intent);
+
+        Log.e(TAG, "onDestroy");
 
         super.onDestroy();
     }
@@ -94,6 +98,8 @@ public class MainActivity extends Activity {
 
             @Override
             protected void onPostExecute(Void result){
+
+                Log.e(TAG, "onPostExecute service starting");
 
                 if(IMSInterface!=null)
                 {
